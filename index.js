@@ -30,31 +30,34 @@ document.querySelector(".check").addEventListener("click", function () {
       document.querySelector(".highscore").textContent = highScore;
     }
 
-    //when guess is high
-  } else if (guess > number) {
+    //when guess is wrong
+  } else if (guess !== number) {
     if (score > 1) {
-      document.querySelector(".message").textContent = "Too high";
+      document.querySelector(".message").textContent =
+        guess > number ? "Too high" : "Too low";
       score--;
       document.querySelector(".score").textContent = score;
     } else {
       document.querySelector(".message").textContent = "Game Over";
       score = 0;
-      document.querySelector(".score").textContent = score;
-    }
-  }
-  //when guess is low
-  else if (guess < number) {
-    if (score > 1) {
-      document.querySelector(".message").textContent = "Too low";
-      score--;
-      document.querySelector(".score").textContent = score;
-    } else {
-      document.querySelector(".message").textContent = "Game Over";
-      score = 0;
+      document.querySelector("body").style.backgroundColor = "red";
       document.querySelector(".score").textContent = score;
     }
   }
 });
+//when guess is low
+//   else if (guess < number) {
+//     if (score > 1) {
+//       document.querySelector(".message").textContent = "Too low";
+//       score--;
+//       document.querySelector(".score").textContent = score;
+//     } else {
+//       document.querySelector(".message").textContent = "Game Over";
+//       score = 0;
+//       document.querySelector(".score").textContent = score;
+//     }
+//   }
+// });
 
 document.querySelector(".again").addEventListener("click", function () {
   score = 20;
